@@ -1,0 +1,49 @@
+const express = require('express'); // Import Express framework
+const path = require('path');      // Import Node.js path module
+const bodyParser = require('body-parser'); // Aggiungi questa riga per importare body-parser
+const static = require('express').static;
+const app = express();              // Create an Express application instance
+const port = 8000;                  // Define port number
+const controller = require('./controller/controller')
+const router = express.Router();
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+router
+.get('/')
+.post('/test',controller.salvaPreventivo)
+
+app.use(router)
+
+// View Engine Setup (assuming EJS):
+app.set('view engine', 'ejs');      // Set EJS as the view engine
+app.set('views', path.join(__dirname, 'views')); // Set the path to the views directory
+
+// Static Files Middleware:
+app.use(static(path.join(__dirname, 'public'))); // Serve static files from the 'public' directory
+app.use(static(path.join(__dirname,'node_modules')));
+// Routing:
+// Replace 'index' with the actual function/handler for your route:
+
+
+app.get('/', (req, res) => {
+    res.render('index'); // Replace 'index' with your actual EJS template file name
+});
+app.get('/preventivo', (req, res) => {
+    res.render('preventivo'); // Replace 'index' with your actual EJS template file name
+});
+
+
+
+// Error Handling (Optional):
+app.use((err, req, res, next) => {
+    // Handle errors appropriately (e.g., logging, sending error messages)
+    console.error(err.stack);
+    res.status(500).send('Something went wrong!');
+});
+
+// Start the Server:
+app.listen(port,() => {
+    console.log(`App listening on port ${port}`);
+});
