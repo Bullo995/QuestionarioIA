@@ -11,11 +11,19 @@ class DBUpdater {
  
     crea() {
         let sql = `
-            INSERT INTO preventivo(nome,email,telefono,messaggio)
-            VALUES(?,?,?,?)
+        INSERT INTO preventivo(nome, email, telefono, messaggio) 
+        VALUES ($1, $2, $3, $4);
         `;
     
-        return db.execute(sql,[this.nome,this.email,this.telefono,this.messaggio]);
+        return db.query(sql, [this.nome, this.email, this.telefono, this.messaggio])
+        .then(result => {
+            console.log("Riga inserita con successo:", result.rowCount);
+            return result; // Ritorna il risultato della query
+        })
+        .catch(error => {
+            console.error("Errore durante l'inserimento della riga:", error);
+            throw error; // Rilancia l'errore per gestirlo più in alto
+        });
     }
 }
 

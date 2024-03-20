@@ -7,7 +7,6 @@ exports.salvaPreventivo = async (req, res, next) => {
         let email = req.body.email;
         let telefono = req.body.telefono;
         let messaggio = req.body.messaggio === "" ? null : req.body.messaggio;
-        console.log(nome);
         let salvaPreventivo = new DBUpdater (
             nome,
             email,
