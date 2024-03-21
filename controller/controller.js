@@ -7,17 +7,37 @@ exports.salvaPreventivo = async (req, res, next) => {
         let email = req.body.email;
         let telefono = req.body.telefono;
         let messaggio = req.body.messaggio === "" ? null : req.body.messaggio;
-        let salvaPreventivo = new DBUpdater (
-            nome,
-            email,
-            telefono,
-            messaggio
-        );
+       
+        var err={};
 
-     
-        salvaPreventivo.crea();
-        //aggiungere avviso invio
-  
+          if(!checkNomeL(nome) && nome == "" ){
+            err["nome "] = "il nome non è valido"
+          }
+
+          if(!checkEmail(email) || email ==""){
+            err["email"] = "l'email non è valido"
+          }
+
+          if(!checkPhoneNumber(telefono) || telefono =="" ){
+            err["telefono"] = "il telefono non è valido"
+          }
+            
+          if (Object.keys(err).length > 0) {
+            //agiungi invio errore  a frontend
+            console.log("Si sono verificati i seguenti errori:");
+            console.log(err);
+            res.status(201).json({message : err})
+          } else {
+            let salvaPreventivo = new DBUpdater (
+              nome,
+              email,
+              telefono,
+              messaggio 
+            );
+            salvaPreventivo.crea();  
+            //agiungi invio sucesso frontend
+          }  
+          
       //res.status(201).json({ message: "Categoria creata" });
       res.redirect("/");
     } catch (error) {
@@ -25,3 +45,19 @@ exports.salvaPreventivo = async (req, res, next) => {
     }
   };
   
+  //handler check lunghezza nome 
+  function checkNomeL(name) {
+    return name.length <= 20;
+  }
+
+// Handler per verificare se un'email è valida
+  function checkEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  function checkPhoneNumber(phoneNumber) {
+    // Si suppone un formato specifico per i numeri di cellulare europei senza spazi, come ad esempio +XXXXXXXXXXX
+    const phoneRegex = /^\+\d{2}\d{9}$/;
+    return phoneRegex.test(phoneNumber);
+}
