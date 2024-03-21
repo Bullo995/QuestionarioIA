@@ -58,6 +58,6 @@ exports.salvaPreventivo = async (req, res, next) => {
 
   function checkPhoneNumber(phoneNumber) {
     // Si suppone un formato specifico per i numeri di cellulare europei senza spazi, come ad esempio +XXXXXXXXXXX
-    const phoneRegex = /^\+\d{2}\d{9}$/;
+    const phoneRegex = /^\+\d{2}\d{11}$/;
     return phoneRegex.test(phoneNumber);
 }
