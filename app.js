@@ -31,6 +31,10 @@ router.get('/preventivo', (req, res) => {
     res.render('preventivo');
 });
 
+router.get('/info',(req, res) => {
+    res.render('info');
+});
+
 app.use('/', router);
 
 // Error Handling Middleware:
