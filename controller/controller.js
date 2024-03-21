@@ -34,7 +34,8 @@ exports.salvaPreventivo = async (req, res, next) => {
               telefono,
               messaggio 
             );
-            salvaPreventivo.crea();  
+            salvaPreventivo.crea(); 
+            res.status(201).json({message : "Preventivo elaborato"}) 
             //agiungi invio sucesso frontend
           }  
           
@@ -58,6 +59,6 @@ exports.salvaPreventivo = async (req, res, next) => {
 
   function checkPhoneNumber(phoneNumber) {
     // Si suppone un formato specifico per i numeri di cellulare europei senza spazi, come ad esempio +XXXXXXXXXXX
-    const phoneRegex = /^\+\d{2}\d{11}$/;
+    const phoneRegex = /^\+\d{2}\d{9,10}$/;
     return phoneRegex.test(phoneNumber);
 }
