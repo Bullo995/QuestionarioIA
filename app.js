@@ -1,10 +1,11 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const controller = require('./controller/controller');
+const route = require("./routes/routes");
 
 const app = express();
-const port = process.env.PORT || 8000;
+const port = process.env.PORT;
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,24 +19,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
-// Routes
-const router = express.Router();
-
-router.get('/', (req, res) => {
-    res.render('index');
-});
-
-router.post('/test', controller.salvaPreventivo);
-
-router.get('/preventivo', (req, res) => {
-    res.render('preventivo');
-});
-
-router.get('/info',(req, res) => {
-    res.render('info');
-});
-
-app.use('/', router);
+app.use('/', route);
 
 // Error Handling Middleware:
 app.use((err, req, res, next) => {

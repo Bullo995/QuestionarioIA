@@ -7,16 +7,26 @@
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+
+
   <div class="container">
+
+    <% if (errori) { %>
+      <% if (errori.data_nascita == 1) { %>
+        <p>errore</p>
+      <% } %>
+     
+    <% } %>
+
     <h1>Questionario sull'Intelligenza Artificiale</h1>
-    <form action="submit.php" method="post">
+    <form action="invio" method="post">
 
       <label for="data_nascita">Data di nascita:</label>
       <input type="date" id="data_nascita" name="data_nascita">
   
       <label for="luogo_residenza">Luogo di residenza:</label>
       <select id="luogo_residenza" name="luogo_residenza">
-        <option value="" disabled selected hidden>Scegli la regione</option>
+        <option value="" selected hidden>Scegli la regione</option>
         <option value="Abruzzo">Abruzzo</option>
         <option value="Basilicata">Basilicata</option>
         <option value="Calabria">Calabria</option>
@@ -40,8 +50,8 @@
       </select>
 
       <label>Quanto sei familiare con il concetto di Intelligenza Artificiale (IA)?</label>
-      <select id="familiarita_ia" name="familiarita_ia" required>
-        <option value="" disabled selected hidden>Scegli risposta</option>
+      <select id="familiarita_ia" name="familiarita_ia" >
+        <option value="" selected hidden>Scegli risposta</option>
         <option value="molto">Molto familiare</option>
         <option value="abbastanza">Abbastanza familiare</option>
         <option value="poco">Poco familiare</option>
@@ -49,8 +59,8 @@
       </select>
       
       <label>Qual è la tua opinione generale sull'IA? </label>
-      <select id="opinione_ia" name="opinione_ia" required>
-        <option value="" disabled selected hidden>Scegli risposta</option>
+      <select id="opinione_ia" name="opinione_ia" >
+        <option value="" selected hidden>Scegli risposta</option>
         <option value="molto">Molto positiva</option>
         <option value="abbastanza">positiva</option>
         <option value="poco">Negativa</option>
@@ -58,8 +68,8 @@
       </select>
       
       <label>Credi che l'IA abbia un impatto significativo sul futuro della società?</label>
-      <select id="impatto_futuro_ia" name="impatto_futuro_ia" required>
-        <option value="" disabled selected hidden>Scegli risposta</option>
+      <select id="impatto_futuro_ia" name="impatto_futuro_ia" >
+        <option value="" selected hidden>Scegli risposta</option>
         <option value="molto">Molto impattante</option>
         <option value="abbastanza">Abbastanza impattante</option>
         <option value="poco">Poco impattante</option>
@@ -69,8 +79,8 @@
       <textarea id="impatto_futuro_ia_aperta" name="impatto_futuro_ia_aperta" rows="1"  id="perche" maxlength="255" disabled></textarea>
       
       <label>Sei preocupato che l'IA possa sostituire alcuni lavori umani in futuro? </label>
-      <select id="paura_sostituzione_lavori" name="paura_sostituzione_lavori" required>
-        <option value="" disabled selected hidden>Scegli risposta</option>
+      <select id="paura_sostituzione_lavori" name="paura_sostituzione_lavori" >
+        <option value="" selected hidden>Scegli risposta</option>
         <option value="molto">Molto preocupato</option>
         <option value="abbastanza">Abbastanza preocupato</option>
         <option value="poco">Poco preocupato</option>
@@ -80,8 +90,8 @@
       <textarea id="paura_sostituzione_lavori_aperta" name="paura_sostituzione_lavori_aperta" rows="1" id="perche" maxlength="255" disabled></textarea>
       
       <label>Secondo te, quanto impatto avrà l'intelligenza artificiale su settori specifici?</label>
-      <select name="settori_impatto" id="settori_impatto" required>
-        <option value="" disabled selected hidden>Scegli risposta</option>
+      <select name="settori_impatto" id="settori_impatto" >
+        <option value="" selected hidden>Scegli risposta</option>
         <option value="molto">Molto impattante</option>
         <option value="abbastanza">Abbastanza impattante</option>
         <option value="poco">Poco impattante</option>
@@ -91,8 +101,8 @@
       <textarea name="settori_impatto_aperta" rows="1" id="settori_impatto_aperta" maxlength="255" disabled></textarea>
       
       <label>Ti preoccupa la possibilità che l'IA possa essere utilizzata per manipolare le persone o violare la loro privacy?</label>
-      <select name="preoccupazione_manipolazione" id="preoccupazione_manipolazione" required>
-        <option value="" disabled selected hidden>Scegli risposta</option>
+      <select name="preoccupazione_manipolazione" id="preoccupazione_manipolazione" >
+        <option value="" selected hidden>Scegli risposta</option>
         <option value="molto">Molto preoccupato</option>
         <option value="abbastanza">Abbastanza preoccupato</option>
         <option value="poco">Poco preoccupato</option>
@@ -102,8 +112,8 @@
       <textarea name="preoccupazione_manipolazione_aperta" rows="1" id="preoccupazione_manipolazione_aperta" maxlength="255" disabled></textarea>
       
       <label>Quanto credi l'IA possa contribuire a risolvere problemi globali, come la povertà o il cambiamento climatico?</label>
-      <select name="contributo_risolvere_problemi" id="contributo_risolvere_problemi" required >
-        <option value="" disabled selected hidden>Scegli risposta</option>
+      <select name="contributo_risolvere_problemi" id="contributo_risolvere_problemi"  >
+        <option value="" selected hidden>Scegli risposta</option>
         <option value="molto">Molto</option>
         <option value="abbastanza">Abbastanza</option>
         <option value="poco">Poco</option>
@@ -113,8 +123,8 @@
       <textarea name="contributo_risolvere_problemi_aperta" rows="1" id="contributo_risolvere_problemi_aperta" maxlength="255" disabled></textarea>
       
       <label>Quanto ti senti ottimista o pessimista riguardo al futuro in cui l'IA diventerà sempre più diffusa?</label>
-      <select name="ottimismo_pessimismo" id="ottimismo_pessimismo" required>
-        <option value="" disabled selected hidden>Scegli risposta</option>
+      <select name="ottimismo_pessimismo" id="ottimismo_pessimismo" >
+        <option value="" selected hidden>Scegli risposta</option>
         <option value="molto">Molto ottimista</option>
         <option value="abbastanza">Ottimista</option>
         <option value="poco">Pessimista</option>
@@ -124,8 +134,8 @@
       <textarea name="ottimismo_pessimismo_aperta" rows="1" id="ottimismo_pessimismo_aperta" maxlength="255" disabled></textarea>
       
       <label>Quanto l'istruzione sul tema dell'IA, pensi debba essere parte del curriculum scolastico?</label>
-      <select name="istruzione_scolastica" id="istruzione_scolastica" required>
-        <option value="" disabled selected hidden>Scegli risposta</option>
+      <select name="istruzione_scolastica" id="istruzione_scolastica" >
+        <option value="" selected hidden>Scegli risposta</option>
         <option value="molto">Molto presente</option>
         <option value="abbastanza">Abbastanza presente</option>
         <option value="poco">Poco presente</option>
@@ -135,8 +145,8 @@
       <textarea name="istruzione_scolastica_aperta" rows="1" id="istruzione_scolastica_aperta" maxlength="255" disabled></textarea>
       
       <label>Quanto hai utilizzato personalmente un sistema basato sull'IA (come assistenti vocali, algoritmi di raccomandazione, etc.)?</label>
-      <select name="esperienza_utilizzo_ia" id="esperienza_utilizzo_ia" required>
-        <option value="" disabled selected hidden >Scegli risposta</option>
+      <select name="esperienza_utilizzo_ia" id="esperienza_utilizzo_ia" >
+        <option value="" selected hidden >Scegli risposta</option>
         <option value="molto">Molto</option>
         <option value="abbastanza">Abbastanza</option>
         <option value="poco">Poco</option>
