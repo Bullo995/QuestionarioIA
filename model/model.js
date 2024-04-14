@@ -27,7 +27,7 @@ class DBUpdater {
  
     crea() {
         let sql = `
-        INSERT INTO preventivo(
+        INSERT INTO questionario(
             data_nascita,
             luogo_residenza,
             familiarita_ia,

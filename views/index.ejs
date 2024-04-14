@@ -11,10 +11,9 @@
 
   <div class="container">
 
-    <% if (errori) { %>
-      <% if (errori.data_nascita == 1) { %>
-        <p>errore</p>
-      <% } %>
+    <% if (successo) { %>
+
+        <h1 class="success-message">questionario inviato </h1>
      
     <% } %>
 
@@ -23,6 +22,9 @@
 
       <label for="data_nascita">Data di nascita:</label>
       <input type="date" id="data_nascita" name="data_nascita">
+      <% if (errori && errori.data_nascita === 1) { %>
+        <p class="error-message">Campo richiesto</p>
+      <% } %>
   
       <label for="luogo_residenza">Luogo di residenza:</label>
       <select id="luogo_residenza" name="luogo_residenza">
@@ -48,6 +50,9 @@
         <option value="Valle d'Aosta">Valle d'Aosta</option>
         <option value="Veneto">Veneto</option>
       </select>
+      <% if (errori && errori.luogo_residenza === 1) { %>
+        <p class="error-message">Campo richiesto</p>
+      <% } %>
 
       <label>Quanto sei familiare con il concetto di Intelligenza Artificiale (IA)?</label>
       <select id="familiarita_ia" name="familiarita_ia" >
@@ -57,6 +62,9 @@
         <option value="poco">Poco familiare</option>
         <option value="niente">Non familiare </option>
       </select>
+      <% if (errori && errori.familiarita_ia === 1) { %>
+        <p class="error-message">Campo richiesto</p>
+      <% } %>
       
       <label>Qual è la tua opinione generale sull'IA? </label>
       <select id="opinione_ia" name="opinione_ia" >
@@ -66,6 +74,9 @@
         <option value="poco">Negativa</option>
         <option value="niente">Molta negativa</option>
       </select>
+      <% if (errori && errori.opinione_ia === 1) { %>
+        <p class="error-message">Campo richiesto</p>
+      <% } %>
       
       <label>Credi che l'IA abbia un impatto significativo sul futuro della società?</label>
       <select id="impatto_futuro_ia" name="impatto_futuro_ia" >
@@ -75,6 +86,9 @@
         <option value="poco">Poco impattante</option>
         <option value="niente">Non impattante</option>
       </select>
+      <% if (errori && errori.impatto_futuro_ia === 1) { %>
+        <p class="error-message">Campo richiesto</p>
+      <% } %>
       <label>Se la risposta è si, per quali motivi?(Max 255 caratteri)</label>
       <textarea id="impatto_futuro_ia_aperta" name="impatto_futuro_ia_aperta" rows="1"  id="perche" maxlength="255" disabled></textarea>
       
@@ -86,6 +100,9 @@
         <option value="poco">Poco preocupato</option>
         <option value="niente">Non preocupato</option>
       </select>
+      <% if (errori && errori.paura_sostituzione_lavori === 1) { %>
+        <p class="error-message">Campo richiesto</p>
+      <% } %>
       <label>Se la risposta è si, per quali motivi??(Max 255 caratteri)</label>
       <textarea id="paura_sostituzione_lavori_aperta" name="paura_sostituzione_lavori_aperta" rows="1" id="perche" maxlength="255" disabled></textarea>
       
@@ -97,6 +114,9 @@
         <option value="poco">Poco impattante</option>
         <option value="niente">Non impattante</option>
       </select>
+      <% if (errori && errori.settori_impatto === 1) { %>
+        <p class="error-message">Campo richiesto</p>
+      <% } %>
       <label>Se pensi abbiano un impatto, Quali pensi siano i settori piu coinvolti?(Max 255 caratteri)</label>
       <textarea name="settori_impatto_aperta" rows="1" id="settori_impatto_aperta" maxlength="255" disabled></textarea>
       
@@ -108,6 +128,9 @@
         <option value="poco">Poco preoccupato</option>
         <option value="niente">Non preoccupato </option>
       </select>
+      <% if (errori && errori.preoccupazione_manipolazione === 1) { %>
+        <p class="error-message">Campo richiesto</p>
+      <% } %>
       <label>Se la risposta è si, per quali motivi??(Max 255 caratteri)</label>
       <textarea name="preoccupazione_manipolazione_aperta" rows="1" id="preoccupazione_manipolazione_aperta" maxlength="255" disabled></textarea>
       
@@ -119,6 +142,9 @@
         <option value="poco">Poco</option>
         <option value="niente">Niente</option>
       </select>
+      <% if (errori && errori.contributo_risolvere_problemi === 1) { %>
+        <p class="error-message">Campo richiesto</p>
+      <% } %>
       <label>Se pensi contribuisca, per quali motivi?(Max 255 caratteri)</label>
       <textarea name="contributo_risolvere_problemi_aperta" rows="1" id="contributo_risolvere_problemi_aperta" maxlength="255" disabled></textarea>
       
@@ -130,6 +156,9 @@
         <option value="poco">Pessimista</option>
         <option value="niente">Molto pessimista</option>
       </select>
+      <% if (errori && errori.ottimismo_pessimismo === 1) { %>
+        <p class="error-message">Campo richiesto</p>
+      <% } %>
       <label>Vuoi motivare la tua risposta?(Max 255 caratteri)</label>
       <textarea name="ottimismo_pessimismo_aperta" rows="1" id="ottimismo_pessimismo_aperta" maxlength="255" disabled></textarea>
       
@@ -141,6 +170,9 @@
         <option value="poco">Poco presente</option>
         <option value="niente">Non presente</option>
       </select>
+      <% if (errori && errori.istruzione_scolastica === 1) { %>
+        <p class="error-message">Campo richiesto</p>
+      <% } %>
       <label>Se pensi debba essere presensente, per quali motivi?(Max 255 caratteri)</label>
       <textarea name="istruzione_scolastica_aperta" rows="1" id="istruzione_scolastica_aperta" maxlength="255" disabled></textarea>
       
@@ -152,6 +184,9 @@
         <option value="poco">Poco</option>
         <option value="niente">Niente</option>
       </select>
+      <% if (errori && errori.esperienza_utilizzo_ia === 1) { %>
+        <p class="error-message">Campo richiesto</p>
+      <% } %>
       <label>Se utilizzato, quale è stata la tua esperienza?(Max 255 caratteri)</label>
       <textarea name="esperienza_utilizzo_ia_aperta" rows="1" id="esperienza_utilizzo_ia_aperta" maxlength="255" disabled></textarea>
       
