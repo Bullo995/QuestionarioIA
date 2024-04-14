@@ -1,3 +1,4 @@
 node_modules/
 .env
 views/vecchio.ejs
+model/model.js

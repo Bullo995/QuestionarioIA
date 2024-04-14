@@ -1,4 +1,4 @@
-const DBUpdater = require("../model/model");
+const DBUpdater = require("../model/model2");
 
 exports.salvaQuestionario = async (req, res, next) => {
   try {

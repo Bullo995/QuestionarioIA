@@ -44,8 +44,9 @@
                         id="<%= domanda.id %>" 
                         name="<%= domanda.id %>" 
                         rows="1" 
-                        maxlength="<%= domanda.maxlength %>" 
-                        disabled>
+                        maxlength="<%= domanda.maxlength %>"
+                        disabled 
+                    >
                             <%= valori && valori[domanda.id] ? valori[domanda.id] : '' %>
                     </textarea>
                 <% } else { %>
