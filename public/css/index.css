@@ -35,10 +35,11 @@ textarea {
   border-radius: 5px;
   box-sizing: border-box;
 }
-textarea {
-  resize: vertical; /* Impedisce la ridimensionamento orizzontale */
-  height:3cap; /* Imposta un'altezza predefinita */
+
+textarea:disabled {
+  background-color: #c9c2c2;
 }
+
 input[type="submit"] {
   background-color: #4CAF50;
   color: white;
