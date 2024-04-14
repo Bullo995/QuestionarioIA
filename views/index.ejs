@@ -56,7 +56,7 @@
                         value="<%= valori && valori[domanda.id] ? valori[domanda.id] : '' %>"
                     >
                 <% } %>
-                <% if (errori && errori[domanda.id] === 1) { %>
+                <% if (errori && errori[domanda.id] ) { %>
                     <p class="error-message">Campo richiesto</p>
                 <% } %>
             <% }) %>

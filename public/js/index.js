@@ -1,6 +1,7 @@
     var selectBoxes = document.querySelectorAll("select");
-
+    
     selectBoxes.forEach(selectBox => {
+
         selectBox.addEventListener('change', function() {
             
             var textareaId = selectBox.id + "_aperta";

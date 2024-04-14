@@ -8,7 +8,7 @@ exports.salvaQuestionario = async (req, res, next) => {
     for (let campo in req.body) {
       let valore = req.body[campo] !== "" ? req.body[campo] : null;
       if (valore == null && !campo.includes("_aperta")) {
-        errors[campo] = 1;
+        errors[campo] = campo;
       }
       config[campo] = valore;
     }
