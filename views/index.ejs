@@ -1,88 +1,113 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questionario sull'Intelligenza Artificiale</title>
+  <link rel="stylesheet" href="css/index.css">
 </head>
-<body class="container-fluid p-0 m-0">
-    <div class="row">
-        <!-- Span laterale a sinistra -->
-        <div class="col-lg-3 bg-info text-light p-4">
-            <h2>Benvenuti nel mondo delle zanzariere</h2>
-            <p>Scoprite la soluzione ideale per proteggere la vostra casa dalle zanzare e altri insetti fastidiosi con le nostre zanzariere di alta qualità.</p>
-            <p>Le nostre zanzariere offrono protezione e comfort, permettendovi di godere dell'aria fresca senza preoccupazioni.</p>
-        </div>
-
-        <!-- Contenitore del carousel e della storia delle aziende di zanzariere -->
-        <div class="col-lg-9 d-flex flex-column justify-content-center align-items-center">
-            <div class="container-fluid d-none" id="landing">
-                <div id="zanzariera">
-                    <div id="cornice-frontale">
-                        <img src="/img/room_blurred.jpg">
-                    </div>
-                    <div id="rete"></div>
-                </div>                  
-            </div>
-
-            <div class="container-fluid" id="home">
-
-                <nav class="container-fluid text-center gy-0 p-0"
-                    <div class="container-fluid">
-                      <h1 class="display-3 m-auto">Zanzariere</h1>
-                    </div>
-                    <ul class="nav justify-content-center">
-                      <li class="nav-item" >
-                          <a class="nav-link custom-anchor" href="/">Home</a>
-                        </li>
-                      <li class="nav-item">
-                        <a class="nav-link custom-anchor" href="preventivo">Preventivo</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link custom-anchor" href="info">Info</a>
-                      </li>
-                    </ul>
-                  </nav>
-
-                
-                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                        <img src="img/zan_4.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="img/zan_2.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="img/zan_3.jpg" class="d-block w-100" alt="...">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-
-                <!-- Sezione sulla storia delle aziende di zanzariere -->
-                <div class="mt-5 pt-5">
-                    <h2>Storia delle aziende di zanzariere</h2>
-                    <p>Qui puoi inserire una descrizione interessante sulla storia delle aziende che producono zanzariere, il loro sviluppo nel tempo, i prodotti distintivi e altro ancora.</p>
-                    <p>Scopri come le aziende di zanzariere hanno contribuito a migliorare la qualità della vita delle persone offrendo soluzioni innovative e di alta qualità.</p>
-                </div>
-            
-            </div>
-        </div>
-    </div>
-
-    <script src="js/index.js"></script>
-    <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="jquery/dist/jquery.min.js"></script>
+<body>
+  <div class="container">
+    <h1>Questionario sull'Intelligenza Artificiale</h1>
+    <form action="submit.php" method="post">
+      <label>Quanto sei familiare con il concetto di Intelligenza Artificiale (IA)?</label>
+      <select name="familiarita_ia" required>
+        <option value="molto">Molto familiare</option>
+        <option value="abbastanza">Abbastanza familiare</option>
+        <option value="poco">Poco familiare</option>
+        <option value="niente">Non familiare affatto</option>
+      </select>
+      
+      <label>Qual è la tua opinione generale sull'IA? </label>
+      <select name="opinione_ia" required>
+        <option value="molto">Molto positiva</option>
+        <option value="abbastanza">positiva</option>
+        <option value="poco">Negativa</option>
+        <option value="niente">Molta negativa</option>
+      </select>
+      
+      <label>Credi che l'IA abbia un impatto significativo sul futuro della società?</label>
+      <select name="impatto_futuro_ia" required>
+        <option value="molto">Molto impattante</option>
+        <option value="abbastanza">Abbastanza impattante</option>
+        <option value="poco">Poco impattante</option>
+        <option value="niente">Non impattante</option>
+      </select>
+      <label>Se la risposta è si, Perché?(Max 255 caratteri)</label>
+      <textarea name="impatto_ia_perche" rows="4" id="perche" maxlength="255"></textarea>
+      
+      <label>Hai paura che l'IA possa sostituire alcuni lavori umani in futuro? Perché sì o no?</label>
+      <select name="paura_sostituzione_lavori" required>
+        <option value="molto">Molto</option>
+        <option value="abbastanza">Abbastanza</option>
+        <option value="poco">Poco</option>
+        <option value="niente">Niente</option>
+      </select>
+      <label>Se la risposta è si, Perché?(Max 255 caratteri)</label>
+      <textarea name="paura_sostituzione_lavori_perche" rows="4" id="perche" maxlength="255"></textarea>
+      
+      <label>Quali sono, secondo te, i settori in cui l'IA potrebbe avere un impatto più significativo?</label>
+      <select name="settori_impatto" required>
+        <option value="molto">Molto</option>
+        <option value="abbastanza">Abbastanza</option>
+        <option value="poco">Poco</option>
+        <option value="niente">Niente</option>
+      </select>
+      <label>Se la risposta è si, Quali?(Max 255 caratteri)</label>
+      <textarea name="settori_impatto_perche" rows="4" id="perche" maxlength="255"></textarea>
+      
+      <label>Ti preoccupa la possibilità che l'IA possa essere utilizzata per manipolare le persone o violare la loro privacy?</label>
+      <select name="preoccupazione_manipolazione" required>
+        <option value="molto">Molto</option>
+        <option value="abbastanza">Abbastanza</option>
+        <option value="poco">Poco</option>
+        <option value="niente">Niente</option>
+      </select>
+      <label>Se la risposta è si, Perché?(Max 255 caratteri)</label>
+      <textarea name="paura_sostituzione_lavori_perche" rows="4" id="perche" maxlength="255"></textarea>
+      
+      <label>Credi che l'IA possa contribuire a risolvere problemi globali, come la povertà o il cambiamento climatico?</label>
+      <select name="contributo_risolvere_problemi" required>
+        <option value="molto">Molto</option>
+        <option value="abbastanza">Abbastanza</option>
+        <option value="poco">Poco</option>
+        <option value="niente">Niente</option>
+      </select>
+      <label>Se la risposta è si, come?(Max 255 caratteri)</label>
+      <textarea name="contributo_risolvere_problemi_perche" rows="4" id="perche" maxlength="255"></textarea>
+      
+      <label>Quanto ti senti ottimista o pessimista riguardo al futuro in cui l'IA diventerà sempre più diffusa?</label>
+      <select name="ottimismo_pessimismo" required>
+        <option value="molto">Molto ottimista</option>
+        <option value="abbastanza">Ottimista</option>
+        <option value="poco">Pessimista</option>
+        <option value="niente">Molto pessimista</option>
+      </select>
+      <label>Vuoi motivare la tua risposta?(Max 255 caratteri)</label>
+      <textarea name="ottimismo_pessimismo_perche" rows="4" id="perche" maxlength="255"></textarea>
+      
+      <label>Quanto l'istruzione sul tema dell'IA, pensi debba essere parte del curriculum scolastico?</label>
+      <select name="istruzione_scolastica" required>
+        <option value="molto">Molto</option>
+        <option value="abbastanza">Abbastanza</option>
+        <option value="poco">Poco</option>
+        <option value="niente">Niente</option>
+      </select>
+      <label>Se la risposta è si, Perché?(Max 255 caratteri)</label>
+      <textarea name="istruzione_scolastica_perche" rows="4" id="perche" maxlength="255"></textarea>
+      
+      <label>Quanto hai utilizzato personalmente un sistema basato sull'IA (come assistenti vocali, algoritmi di raccomandazione, etc.)?</label>
+      <select name="esperienza_utilizzo_ia" required>
+        <option value="molto">Molto</option>
+        <option value="abbastanza">Abbastanza</option>
+        <option value="poco">Poco</option>
+        <option value="niente">Niente</option>
+      </select>
+      <label>Se utilizzato, Quale è stata la tua esperienza?(Max 255 caratteri)</label>
+      <textarea name="paura_sostituzione_lavori_perche" rows="4" id="perche" maxlength="255"></textarea>
+      
+      <input type="submit" value="Invia">
+    </form>
+  </div>
 </body>
 </html>

@@ -35,11 +35,10 @@ exports.salvaPreventivo = async (req, res, next) => {
               messaggio 
             );
             salvaPreventivo.crea(); 
-            res.status(201).json({message : "Preventivo elaborato"}) 
+            //res.status(201).json({message : "Preventivo elaborato"}) 
             //agiungi invio sucesso frontend
           }  
-          
-      //res.status(201).json({ message: "Categoria creata" });
+        
       res.redirect("/");
     } catch (error) {
       next(error);
