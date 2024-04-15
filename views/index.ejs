@@ -31,12 +31,20 @@
                             hidden
                         >Scegli risposta
                         </option>
-                        <% domanda.options.forEach(option => { %>                      
-                        <option 
-                            value="<%= option %>" 
-                            <% if (valori && valori[domanda.id] === option) { %>selected<% } %>
-                        ><%= option %>
-                        </option>
+                        <% domanda.options.forEach(option => { %>
+                            <% if (domanda.id !== "luogo_residenza") { %>
+                                <option 
+                                    value="<%= option.value %>" 
+                                    <% if (valori && valori[domanda.id] === option.value) { %>selected<% } %>
+                                ><%= option.label %>
+                                </option>
+                            <% }else{ %>
+                                <option 
+                                    value="<%= option %>" 
+                                    <% if (valori && valori[domanda.id] === option) { %>selected<% } %>
+                                ><%= option %>
+                                </option>
+                            <% } %>
                         <% }) %>
                     </select>
                 <% } else if (domanda.type === 'textarea') { %>
@@ -44,8 +52,8 @@
                         id="<%= domanda.id %>" 
                         name="<%= domanda.id %>" 
                         rows="1" 
-                        maxlength="<%= domanda.maxlength %>"
-                        disabled 
+                        maxlength="<%= domanda.maxLength %>"
+                        disabled
                     >
                             <%= valori && valori[domanda.id] ? valori[domanda.id] : '' %>
                     </textarea>
